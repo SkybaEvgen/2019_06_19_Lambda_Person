@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,17 +11,19 @@ public class Main {
 
         Person[] persons = {p1, p2, p3, p4, p5, p6};
 
-        TwoPersons nemeLength = (tp1, tp2) -> tp1.getName().length() > tp2.getName().length() ?
-                1 : (tp1.getName().length() == tp2.getName().length()) ? 0 : -1;
+        TwoPersons nameLength = (tp1, tp2) -> Integer.compare(tp1.getName().length(), tp2.getName().length());
 
-        TwoPersons age = (ap1, ap2) -> ap1.getAge() > ap2.getAge() ? 1 :
-                (ap1.getAge() == ap2.getAge()) ? 0 : -1;
+        TwoPersons age = (ap1, ap2) -> Integer.compare(ap1.getAge(), ap2.getAge());
 
-        int per = nemeLength.per(p1,p6);
+        int per = nameLength.per(p1,p6);
         System.out.println(per);
 
         int agep = age.per(p6, p3);
         System.out.println(agep);
+
+
+
+
 
     }
 }
